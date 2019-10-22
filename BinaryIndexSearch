@@ -1,0 +1,26 @@
+def BinaryIndexSearch(p, L):
+	SL = sorted(L)
+	l = 0
+	r = len(L) - 1
+
+	while True:
+		if l == r:
+			if SL[l] == p:
+				return l
+			else:
+				return -1
+		elif r < l:
+			return -1
+
+		center = l + ((r-l) // 2)
+
+		if SL[center] == p:
+			return center
+
+		elif SL[center] < p:
+			l = center + 1
+			continue
+
+		else:
+			r = center - 1
+			continue
