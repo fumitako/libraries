@@ -1,0 +1,56 @@
+def BinaryIndexSearch_floor(p, L):
+	SL = sorted(L)
+	l = 0
+	r = len(L) - 1
+
+	while True:
+		if l == r:
+			if SL[l] > p:
+				return l
+			else:
+				return -1
+		elif r-l == 1:
+			if SL[l] > p:
+				return l
+			elif SL[r] > p:
+				return r
+			else:
+				return -1
+
+		center = l + ((r-l) // 2)
+
+		if SL[center] <= p:
+			l = center + 1
+			continue
+
+		else:
+			r = center
+			continue
+
+def BinaryIndexSearch_ceil(p, L):
+	SL = sorted(L)
+	l = 0
+	r = len(L) - 1
+
+	while True:
+		if l == r:
+			if SL[l] < p:
+				return l
+			else:
+				return -1
+		elif r-l == 1:
+			if SL[r] < p:
+				return r
+			elif SL[l] < p:
+				return l
+			else:
+				return -1
+		center = l + ((r-l) // 2)
+
+		if SL[center] < p:
+			l = center 
+			continue
+
+		else:
+			r = center - 1
+			continue
