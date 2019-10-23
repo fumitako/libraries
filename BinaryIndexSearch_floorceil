@@ -1,4 +1,8 @@
 def BinaryIndexSearch_floor(p, L):
+	"""
+	search the minimum number among the larger numbers than the ginven nymber "n". 
+	return the index of it under the list sorted.
+	"""
 	SL = sorted(L)
 	l = 0
 	r = len(L) - 1
