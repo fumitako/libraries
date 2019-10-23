@@ -1,0 +1,13 @@
+import math
+
+def Judge_PrimeNum(n):
+    t = []
+    d = math.ceil(n**(1/2))
+    for i in range(2,d+1):
+        if n%i == 0:
+            t.append(i)
+            
+    if len(t) == 0:
+        return -1
+    else:
+        return t
