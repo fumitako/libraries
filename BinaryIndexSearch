@@ -1,4 +1,7 @@
 def BinaryIndexSearch(p, L):
+	"""
+	ある数 n がリストに入っているかどうかを調べる。返り値はリストをソートしたときのインデックス
+	"""
 	SL = sorted(L)
 	l = 0
 	r = len(L) - 1
