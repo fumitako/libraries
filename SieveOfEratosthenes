@@ -1,0 +1,36 @@
+import math
+import heapq
+
+class Sieve_of_Eratosthenes:
+	def __init__(self, n):
+		self.deck = list(range(2,n+1))
+		
+	def judge_primeNum(self, a):
+		d = math.floor(a**(1//2))
+		cond = True
+		for i in range(2,d+1):
+			if a % i == 0:
+				cond = False
+				break
+		return cond
+
+	def enumeration(self, num):
+		deck = list(range(2,num+1))
+		heapq.heapify(deck)
+		prime_list = []
+		
+		while deck:
+			obj = heapq.heappop(deck)
+
+			cond = True
+			for P in prime_list:
+				if obj % P == 0:
+					cond = False
+					break
+			if not cond:
+				continue
+
+			if self.judge_primeNum(obj):
+				prime_list.append(obj)
+
+		return prime_list
