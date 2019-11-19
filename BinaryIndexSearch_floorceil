@@ -1,11 +1,11 @@
-def BinaryIndexSearch_floor(p, L):
+def BinaryIndexSearch_floor(p, SL):
 	"""
 	search the minimum number among the larger numbers than the ginven nymber "n". 
 	return the index of it under the list sorted.
 	"""
-	SL = sorted(L)
+	#SL = sorted(L)
 	l = 0
-	r = len(L) - 1
+	r = len(SL) - 1
 
 	while True:
 		if l == r:
@@ -31,10 +31,10 @@ def BinaryIndexSearch_floor(p, L):
 			r = center
 			continue
 
-def BinaryIndexSearch_ceil(p, L):
-	SL = sorted(L)
+def BinaryIndexSearch_ceil(p, SL):
+	#SL = sorted(L)
 	l = 0
-	r = len(L) - 1
+	r = len(SL) - 1
 
 	while True:
 		if l == r:
