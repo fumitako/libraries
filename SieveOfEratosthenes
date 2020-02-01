@@ -1,36 +1,12 @@
-import math
-import heapq
+import numpy as np
+limit = 10**5
+def Eratosthenes(limit):
+	is_prime = np.full(limit+1, True)
+	is_prime[:2] = False
+	for p in range(2,limit+1):
+		if p**2 > limit:
+			break
+		if is_prime[p]:
+			is_prime[p**2::p] = False
 
-class Sieve_of_Eratosthenes:
-	def __init__(self, n):
-		self.deck = list(range(2,n+1))
-		
-	def judge_primeNum(self, a):
-		d = math.floor(a**(1//2))
-		cond = True
-		for i in range(2,d+1):
-			if a % i == 0:
-				cond = False
-				break
-		return cond
-
-	def enumeration(self, num):
-		deck = list(range(2,num+1))
-		heapq.heapify(deck)
-		prime_list = []
-		
-		while deck:
-			obj = heapq.heappop(deck)
-
-			cond = True
-			for P in prime_list:
-				if obj % P == 0:
-					cond = False
-					break
-			if not cond:
-				continue
-
-			if self.judge_primeNum(obj):
-				prime_list.append(obj)
-
-		return prime_list
+	return np.arange(limit+1)[is_prime]
