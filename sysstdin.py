@@ -10,4 +10,4 @@ import numpy as np
 #.....
 #xn yn
 
-XY = np.array(read().split(), np.int64)
+XY = np.array(read().split(), np.int64).reshape(-1,2)
