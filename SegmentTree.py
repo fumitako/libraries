@@ -3,6 +3,8 @@ ide = float('inf')
 
 class SegmentTree:
 	def __init__(self,n):
+        #セグ木の頂点はindex == 1から。index == 0は無視すること。
+        #つまり、STtable[0]は無視。頂点はSTtable[1]。
 		self.n = n
 		tmp = 0
 		while True:
@@ -13,6 +15,7 @@ class SegmentTree:
 		self.STtable_size = len(self.STtable)
 
 	def update(self,i,a):
+        #更新のためのインデックスの指定は0_indexedで。
 		i += self.STtable_size//2
 		self.STtable[i] = a
 		while i > 0:
@@ -20,8 +23,10 @@ class SegmentTree:
 			self.STtable[i] = min(self.STtable[i*2], self.STtable[i*2+1])
 
 	def find(self,a,b,k,l,r):
+        #kは頂点番号。初期値は1にすること。
 		#[a,b)の最小を返す。
 		#[l,r)からです。
+        #初期値のrは、self.STtable_size//2にすると、ちょうど要素数と同じ値になって[l,r)のrになる。
 		if a >= r or b <= l:
 			return ide
 		elif a <= l and b >= r:
