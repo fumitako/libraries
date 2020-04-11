@@ -43,14 +43,14 @@ n,q = map(int, input().split())
 solve = SegmentTree(n)
 ans = []
 for _ in range(q):
-    cond, x, y = map(int, input().split())
-    if cond == 0:
-        solve.update(x,y)
-    else:
-        ans.append(solve.find(x,y+1))
+	cond, x, y = map(int, input().split())
+	if cond == 0:
+		solve.update(x,y)
+	else:
+		ans.append(solve.find(x,y+1))
 
 for a in ans:
-    if a == ide:
-        print(2147483647)
-    else:
-        print(a)
+	if a == ide:
+		print(2147483647)
+	else:
+		print(a)
